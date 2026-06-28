@@ -1,0 +1,15 @@
+{
+  "name": "coverage-roadmap-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build:wasm": "wasm-pack build ../wasm --target web --out-dir ../app/pkg",
+    "dev": "npm run build:wasm && vite --host 127.0.0.1",
+    "build": "npm run build:wasm && tsc && vite build"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}
