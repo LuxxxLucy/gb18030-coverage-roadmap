@@ -1,0 +1,10 @@
+[package]
+name = "cli"
+version.workspace = true
+edition.workspace = true
+
+[features]
+render = []
+
+[dependencies]
+coverage_core = { package = "core", path = "../core" }
