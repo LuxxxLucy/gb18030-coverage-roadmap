@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coverage · roadmap</title>
+    <script type="module" crossorigin src="./assets/index-B_t_lhW9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BdfY1Um7.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <h1>coverage<span>·</span>roadmap</h1>
+        <p id="summary" class="status" aria-live="polite"></p>
+      </header>
+
+      <section class="stage">
+        <div class="card card--dasher">
+          <canvas
+            id="roadmap"
+            width="1440"
+            height="810"
+            role="application"
+            aria-label="Dasher roadmap: candidates rest in the right half sized by score; click one to accept it, it moves to the history on the left and the next candidates appear"
+          ></canvas>
+          <p class="hint">Click a candidate to design it next.</p>
+        </div>
+        <aside class="card card--map">
+          <canvas id="sitemap" width="480" height="720"></canvas>
+        </aside>
+      </section>
+
+      <section class="card card--graph">
+        <canvas id="graph" width="1760" height="640"></canvas>
+      </section>
+    </main>
+  </body>
+</html>
