@@ -1,0 +1,52 @@
+# Build the blog (main.typ -> index.html) and deploy it, with the bundled web
+# app under web/, to GitHub Pages on every push to main. Fonts are vendored, so
+# no font-fetch step; cetz comes from the Typst package registry at build time.
+
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: typst-community/setup-typst@v4
+        with:
+          typst-version: latest
+
+      - name: Build HTML
+        run: ./doc/build.sh
+
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          cp doc/index.html _site/index.html
+          cp -r doc/web _site/web
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
