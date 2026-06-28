@@ -1,0 +1,10 @@
+[package]
+name = "core"
+version.workspace = true
+edition.workspace = true
+
+[features]
+render = ["dep:fontdue"]
+
+[dependencies]
+fontdue = { version = "0.9", optional = true }
