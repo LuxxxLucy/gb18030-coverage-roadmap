@@ -1,0 +1,14 @@
+/target/
+/refs/
+/node_modules/
+/app/node_modules/
+/app/pkg/
+/app/dist/
+/doc/src
+/doc/assets
+/doc/.vscode/
+/doc/main.pdf
+/doc/main.html
+/doc/index.html
+/doc/vendor/dual-typst/assets/fonts/
+/Cargo.lock
